@@ -24,10 +24,9 @@ export class LoginComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    sessionStorage.setItem('token', '');
-    console.log(`typeof model = ${typeof this.model}`);
+    console.log(`session storage: ${sessionStorage.getItem('token')}`);
   }
-  
+
   login() {
     console.log(`login attempt by ${this.model.username}`);
     let url = 'http://localhost:8080/login';
@@ -39,6 +38,7 @@ export class LoginComponent implements OnInit {
         sessionStorage.setItem('token', btoa(this.model.username + ':' + this.model.password));
         this.router.navigate(['tasks']);
       } else {
+        sessionStorage.setItem('token', '');
         alert("Authentication failed.")
       }
     });

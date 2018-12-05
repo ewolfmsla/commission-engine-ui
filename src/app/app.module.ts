@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './views/login/login.component';
 import { TasksComponent } from './views/tasks/tasks.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AppSecurity } from '../app/security/app.security';
 
 
 @NgModule({
@@ -23,7 +24,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     HttpClientModule,
     NgbModule
   ],
-  providers: [],
+  providers: [AppSecurity],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
